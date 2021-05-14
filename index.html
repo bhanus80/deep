@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Fetch Api Example</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+
+  </head>
+  <body>
+
+
+    <div style="text-size:24px; background-color:#FDF9B6;">
+      <a href="#default" class="logo" style="background-color:red;font-size:36px; border:2px; margin-left:30px; margin-top:20px;border:15px;color:black;">Deep Restaurant</a>
+   
+     <a href="index.html" style="font-size:24px;margin-left:100px; border:1px; padding:10px; color:green;"><b>Home</b></a>
+    <a href="country.html" style="font-size:24px;margin-left:50px; border:1px; padding:10px; color:green;"><b>Country API</b></a>
+    
+ 
+   <br>
+    <br>
+  </div>
+  
+     <div class="container">
+         <div style="position:fixed; background-color:pink;" >
+                <label style="float:right; margin-left:100px;">
+        
+        <!-- <input type="submit" value="Bill Generate"> -->
+                </label>
+       <label style="float:right; margin-left:700px;">
+        Total
+        <input value="$0.00" readonly type="text" id="total" />
+      </label>
+
+         </div>
+        <div class="radio">
+          <label><input type="radio" value="male" name="gender" checked>Male</label>
+        
+          <label><input type="radio" value="female" name="gender">Female</label>
+      
+          <label><input type="radio" value="all" name="gender">All</label>
+
+      
+      
+        </div>
+        <spam>
+            <label for="sel1">Select Nationality:</label>
+            <select class="form-control" id="nationality">
+              <option>AU</option>
+              <option>BR</option>
+              <option>CA</option>
+              <option>CH</option>
+              <option>DE</option>
+              <option>DK</option>
+              <option>ES</option>
+              <option>FI</option>
+              <option>FR</option>
+              <option>GB</option>
+              <option>IR</option>
+              <option>IE</option>
+              <option>NO</option>
+              <option>NL</option>
+              <option>NZ</option>
+              <option>TR</option>
+              <option>US</option>
+            </select>
+        </spam>
+        <div id="result">
+
+        </div>
+     </div>
+  </body>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+
+function totalIt() {
+    var input = document.getElementsByName("product");
+    var total = 0;
+    for (var i = 0; i < input.length; i++) {
+    if (input[i].checked) {
+      total += parseFloat(input[i].value);
+    }
+ }
+ document.getElementById("total").value = "$" + total.toFixed(2);
+}
+</script>
+<script>
+var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+</html>
